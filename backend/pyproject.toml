@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "budgetizer-backend"
+version = "0.0.1"
+description = ""
+authors = ["Max Sieminski <maxsieminski@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.95.1"
+uvicorn = {extras = ["standard"], version = "^0.21.1"}
+sqlalchemy = "^2.0.9"
+alembic = "^1.10.3"
+psycopg2-binary = "^2.9.6"
+python-multipart = "^0.0.6"
+python-jose = "^3.3.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+
+
+[build-system]
+requires = ["poetry-core==1.4.2"]
+build-backend = "poetry.core.masonry.api"
