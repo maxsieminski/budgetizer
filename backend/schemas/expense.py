@@ -1,9 +1,11 @@
 from datetime import datetime
-from pydantic import BaseModel
 
-from schemas.expense_category import ExpenseCategory
+from pydantic import BaseModel, Field
+from pydantic.class_validators import Optional
+
+from schemas.expense_category import ExpenseCategory, ExpenseCategoryCreate
 from schemas.expense_item import ExpenseItem, ExpenseItemCreate
-from schemas.shop import Shop
+from schemas.shop import Shop, ShopCreate
 
 
 class ExpenseBase(BaseModel):
@@ -12,8 +14,10 @@ class ExpenseBase(BaseModel):
 
 class ExpenseCreate(ExpenseBase):
     items: list[ExpenseItemCreate]
-    shop_id: int | None = None
-    category_id: int | None = None
+    shop_id: Optional[int] = Field(None)
+    category_id: Optional[int] = Field(None)
+    shop: Optional[ShopCreate] = Field(None)
+    category: Optional[ExpenseCategoryCreate] = Field(None)
 
 
 class Expense(ExpenseBase):

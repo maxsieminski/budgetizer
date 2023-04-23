@@ -26,7 +26,7 @@ class ExpenseCategory(Base):
     __tablename__ = "expense_categories"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
+    name = Column(String, nullable=False, unique=True)
 
     expenses = relationship("Expense", back_populates="category")
 

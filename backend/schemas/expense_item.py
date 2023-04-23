@@ -1,6 +1,7 @@
 from pydantic import BaseModel
+from pydantic.class_validators import Optional
 
-from schemas.product import Product
+from schemas.product import Product, ProductCreate
 
 
 class ExpenseItemBase(BaseModel):
@@ -9,8 +10,9 @@ class ExpenseItemBase(BaseModel):
 
 
 class ExpenseItemCreate(ExpenseItemBase):
-    expense_id: int | None = None
-    product_id: int
+    expense_id: Optional[int]
+    product: Optional[ProductCreate]
+    product_id: Optional[int]
 
 
 class ExpenseItem(ExpenseItemBase):

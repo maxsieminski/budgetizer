@@ -1,9 +1,10 @@
 from pydantic import BaseModel
+from pydantic.class_validators import Optional
 
 
 class ProductBase(BaseModel):
     name: str
-    brand: str | None = None
+    brand: Optional[str]
 
 
 class ProductCreate(ProductBase):
